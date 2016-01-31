@@ -1,0 +1,7 @@
+brew install caskroom/cask/brew-cask
+
+export PATH=/usr/local/bin:$PATH
+brew install git
+
+brew install wget
+brew install tree
