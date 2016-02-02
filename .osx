@@ -1,5 +1,10 @@
 #!/usr/bin/env bash
 
+which defaults || {
+    echo 'must run on a mac, /usr/bin/defaults not in your $PATH'
+    exit 1
+}
+
 # Ask for the administrator password upfront
 sudo -v
 
@@ -84,6 +89,9 @@ defaults write com.apple.finder QLEnableTextSelection -bool TRUE
 
 # Terminal: Only use UTF-8 in Terminal.app
 defaults write com.apple.terminal StringEncodings -array 4
+
+# Keyboard Shortcuts
+defaults write -g NSUserKeyEquivalents -dict-add 'Zoom' -string '@$m'
 
 # Terminal: Use a modified version of the Solarized Dark theme by default in Terminal.app
 #TERM_PROFILE='Solarized Dark xterm-256color';
