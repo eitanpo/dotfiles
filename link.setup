@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+export DOTFILES=~/.dotfiles
+
+for file in $DOTFILES/link/.[!.]*; do
+    ln -s "${file}" "${HOME}/${file##*/}"
+done;
+unset file;

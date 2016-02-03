@@ -15,6 +15,14 @@ else # OS X `ls`
     colorflag="-G"
 fi
 
+alias ..="cd .."
+alias ...="cd ../.."
+
+# Create a new directory and enter it
+function md() {
+  mkdir -p "$@" && cd "$@"
+}
+
 # List all files colorized in long format
 alias l="ls -lF ${colorflag}"
 
@@ -34,3 +42,19 @@ alias cleanup="find . -type f -name '*.DS_Store' -ls -delete"
 # Add tab completion for `defaults read|write NSGlobalDomain`
 # You could just use `-g` instead, but I like being explicit
 complete -W "NSGlobalDomain" defaults;
+
+#
+# History
+#
+
+# Entries beginning with space aren't added into history, and duplicate
+# entries will be erased (leaving the most recent entry).
+export HISTCONTROL="ignorespace:erasedups"
+# Give history timestamps.
+export HISTTIMEFORMAT="[%F %T] "
+# Lots o' history.
+export HISTSIZE=10000
+export HISTFILESIZE=10000
+
+# Easily re-execute the last history command.
+alias r="fc -s"
