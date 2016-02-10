@@ -7,3 +7,4 @@ brew install wget
 brew install tree
 brew install graphviz
 brew install bash
+brew install node
