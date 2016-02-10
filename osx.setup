@@ -101,7 +101,7 @@ defaults write -g NSUserKeyEquivalents -dict-add 'Zoom' -string '@$m'
 defaults write com.apple.mail NSUserKeyEquivalents -dict-add "Send" -string "@\\U21a9"
 
 # Disable ⌘ + M
-defaults write -g NSUserKeyEquivalents -dict-add 'Minimize' nil
+defaults write -g NSUserKeyEquivalents -dict-add 'Minimize' '\0'
 
 # Prevent Photos from opening automatically when devices are plugged in
 defaults -currentHost write com.apple.ImageCapture disableHotPlug -bool true
