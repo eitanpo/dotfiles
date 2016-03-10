@@ -14,6 +14,9 @@ sudo defaults write /Library/Preferences/com.apple.loginwindow AdminHostInfo Hos
 # Snandby delay after slept started - 16 hours
 sudo pmset -a standbydelay 57600
 
+# Keep file vault keys after standby
+sudo pmset -a destroyfvkeyonstandby 0
+
 # Trackpad: enable tap to click for this user and for the login screen
 defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad Clicking -bool true
 defaults -currentHost write NSGlobalDomain com.apple.mouse.tapBehavior -int 1

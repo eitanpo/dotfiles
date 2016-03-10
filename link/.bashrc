@@ -14,4 +14,4 @@ shopt -s histappend;
 # Autocorrect typos in path names when using `cd`
 #shopt -s cdspell;
 
-curl -4 http://wttr.in/Tel%20Aviv
+#curl -4 http://wttr.in/Tel%20Aviv
