@@ -3,6 +3,6 @@
 export DOTFILES=~/.dotfiles
 
 for file in $DOTFILES/link/.[!.]*; do
-    echo ln -s "${file}" "${HOME}/${file##*/}"
+    ln -s "${file}" "${HOME}/${file##*/}"
 done;
 unset file;
