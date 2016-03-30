@@ -103,9 +103,6 @@ defaults write com.apple.terminal StringEncodings -array 4
 # Add keyboard Shortcut for Zoom
 defaults write -g NSUserKeyEquivalents -dict-add 'Zoom' -string '@$m'
 
-# Add the keyboard shortcut ⌘ + Enter to send an email in Mail.app
-defaults write com.apple.mail NSUserKeyEquivalents -dict-add "Send" -string "@\\U21a9"
-
 # Disable ⌘ + M
 defaults write -g NSUserKeyEquivalents -dict-add 'Minimize' '\0'
 
