@@ -9,3 +9,5 @@ brew install graphviz
 brew install bash
 brew install node
 brew install go
+brew install p7zip
+brew install aria2
