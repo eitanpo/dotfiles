@@ -7,7 +7,6 @@ brew install graphviz
 brew install hyperkit
 brew install kubernetes-cli
 brew install little-cms2
-brew install node
 brew install p7zip
 brew install pandoc
 brew install pkg-config
@@ -19,4 +18,4 @@ brew install wget
 
 brew cask install spectacle
 brew cask install intelliscape-caffeine
-brew cask install minikube
+brew cask install firefox
