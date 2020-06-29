@@ -15,6 +15,7 @@ brew install sphinx-doc
 brew install tig
 brew install tree
 brew install wget
+brew install starship
 
 brew cask install spectacle
 brew cask install intelliscape-caffeine
