@@ -10,14 +10,12 @@ $ cd dotfiles && source bootstrap.sh
 
 Setup
 =====
-$ cd ~/.dotfiles
-
-$ source link.setup
-
-$ source osx.setup
-
-$ ./brew.sh
-
+```bash
+cd ~/.dotfiles
+source link.setup
+./.macos
+./brew.sh
+```
 
 Update
 ======
