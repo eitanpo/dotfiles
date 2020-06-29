@@ -15,3 +15,5 @@ shopt -s histappend;
 #shopt -s cdspell;
 
 #curl -4 http://wttr.in/Tel%20Aviv
+
+eval "$(starship init bash)"
