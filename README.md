@@ -1,6 +1,21 @@
-dotfiles
-========
+Init
+====
 
-$ git clone git@github.com:eitanpo/dotfiles.git ~/.dotfiles
+$ cd ~ && mkdir Projects && cd Projects
+$ git clone https://github.com/eitanpo/dotfiles.git
+$ cd dotfiles && source bootstrap.sh
 
-$ source ~/.dotfiles/link.setup
+
+Setup
+=====
+$ cd ~/.dotfiles
+$ source link.setup
+$ source osx.setup
+$ source brew.setup
+
+
+Update
+======
+$ cd ~/Projects
+$ git clone https://github.com/eitanpo/dotfiles.git
+$ cd dotfiles && source bootstrap.sh
