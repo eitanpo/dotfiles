@@ -16,7 +16,7 @@ $ source link.setup
 
 $ source osx.setup
 
-$ source brew.setup
+$ ./brew.sh
 
 
 Update
