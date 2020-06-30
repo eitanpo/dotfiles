@@ -17,6 +17,9 @@ brew install tree
 brew install wget
 brew install starship
 
+brew tap homebrew/cask-fonts
+brew cask install font-hack-nerd-font
+
 brew cask install spectacle
 brew cask install intelliscape-caffeine
 brew cask install firefox
