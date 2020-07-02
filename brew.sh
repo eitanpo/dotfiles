@@ -26,3 +26,4 @@ brew cask install firefox
 brew cask install slack
 brew cask install visual-studio-code
 brew cask install whatsapp
+brew cask install java
