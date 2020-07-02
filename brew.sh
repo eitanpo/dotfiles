@@ -24,4 +24,5 @@ brew cask install spectacle
 brew cask install intelliscape-caffeine
 brew cask install firefox
 brew cask install slack
+brew cask install visual-studio-code
 brew cask install whatsapp
