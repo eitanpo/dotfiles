@@ -20,10 +20,11 @@ brew install starship
 brew tap homebrew/cask-fonts
 brew cask install font-hack-nerd-font
 
+brew cask install java
 brew cask install spectacle
 brew cask install intelliscape-caffeine
 brew cask install firefox
 brew cask install slack
 brew cask install visual-studio-code
 brew cask install whatsapp
-brew cask install java
+brew cask install spotify
