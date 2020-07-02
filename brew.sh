@@ -16,6 +16,7 @@ brew install tig
 brew install tree
 brew install wget
 brew install starship
+brew install plantuml
 
 brew tap homebrew/cask-fonts
 brew cask install font-hack-nerd-font
