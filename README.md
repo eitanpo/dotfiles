@@ -9,11 +9,12 @@ git clone https://github.com/eitanpo/dotfiles.git && cd dotfiles && source boots
 Setup
 =====
 ```bash
-cd ~/.dotfiles && source link.setup && ./.macos && ./brew.sh
+source brew.sh
+source ~/.macos
 ```
 
 Update
 ======
 ```bash
-cd ~/Projects && git clone https://github.com/eitanpo/dotfiles.git && cd dotfiles && source bootstrap.sh
+source ~/Projects/dotfiles/bootstrap.sh
 ```
