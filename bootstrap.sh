@@ -11,7 +11,9 @@ function doIt() {
 		--exclude "bootstrap.sh" \
 		--exclude "README.md" \
 		--exclude "LICENSE-MIT.txt" \
-		--exclude "shortcuts.ahk"
+		--exclude "shortcuts.ahk" \
+		--exclude "source" \
+		--exclude "resources" \
 		-avh --no-perms . ~;
 	source ~/.bash_profile;
 }
