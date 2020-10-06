@@ -8,3 +8,5 @@ truncation_length = 8
 truncate_to_repo = false
 fish_style_pwd_dir_length = 1
 
+[kubernetes]
+disabled = false
