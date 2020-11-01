@@ -51,3 +51,6 @@ complete -o "nospace" -W "Contacts Calendar Dock Finder Mail Safari iTunes Syste
 
 # Starship
 eval "$(starship init bash)"
+
+# Add eksctl completion
+. <(eksctl completion bash)

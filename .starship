@@ -10,3 +10,8 @@ fish_style_pwd_dir_length = 1
 
 [kubernetes]
 disabled = false
+
+[aws]
+disabled = false
+[aws.region_aliases]
+eu-west-1 = "Ireland"
