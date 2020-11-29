@@ -15,3 +15,4 @@ disabled = false
 disabled = false
 [aws.region_aliases]
 eu-west-1 = "Ireland"
+us-east-1 = "N. Virginia"
