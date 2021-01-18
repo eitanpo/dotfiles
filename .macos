@@ -102,10 +102,10 @@ defaults write NSGlobalDomain NSAutomaticSpellingCorrectionEnabled -bool false
 defaults write com.apple.menuextra.clock DateFormat "d MMM  H:mm"
 
 # Add keyboard Shortcut for Zoom
-defaults write -g NSUserKeyEquivalents -dict-add 'Zoom' -string '@$m'
+defaults write -g NSUserKeyEquivalents -dict-add 'Zoom' -string '@~^m'
 
 # Disable ⌘ + M
-defaults write -g NSUserKeyEquivalents -dict-add 'Minimize' '\0'
+#defaults write -g NSUserKeyEquivalents -dict-add 'Minimize' '\0'
 
 ###############################################################################
 # Trackpad, mouse, keyboard, Bluetooth accessories, and input                 #
