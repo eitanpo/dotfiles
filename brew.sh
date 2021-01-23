@@ -9,6 +9,7 @@ else
     brew upgrade
 fi;
 
+# https://github.com/Homebrew/homebrew-bundle
 # Install everything inside Brewfile
 brew bundle
 
