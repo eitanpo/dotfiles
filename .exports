@@ -27,3 +27,6 @@ export BASH_SILENCE_DEPRECATION_WARNING=1;
 
 # Change default starship configuration
 export STARSHIP_CONFIG=~/.starship
+
+# dotnet
+export DOTNET_CLI_TELEMETRY_OPTOUT=1
