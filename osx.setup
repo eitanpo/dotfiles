@@ -1,3 +1,6 @@
+# DELETE FILE
+
+
 #!/usr/bin/env bash
 
 which defaults || {
