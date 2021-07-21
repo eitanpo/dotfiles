@@ -23,3 +23,6 @@ us-east-1 = 'N. Virginia'
 disabled = true
 symbol = '🇬️ '
 format = 'on [$symbol$account(\($project\))]($style) '
+
+[nodejs]
+format = "via [🤖 $version](bold green) "
