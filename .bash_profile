@@ -83,7 +83,7 @@ if command -v pyenv 1>/dev/null 2>&1; then
 fi
 
 # Vagrant
-if command -v /opt/vagrant/embedded/gems/2.2.16/gems/vagrant-2.2.16/contrib/bash/completion.sh 1>/dev/null 2>&1; then
+if [ -f "/opt/vagrant/embedded/gems/2.2.16/gems/vagrant-2.2.16/contrib/bash/completion.sh" ]; then
 	. /opt/vagrant/embedded/gems/2.2.16/gems/vagrant-2.2.16/contrib/bash/completion.sh
 else
 	echo "Missing /opt/vagrant/embedded/gems/2.2.16/gems/vagrant-2.2.16/contrib/bash/completion.sh"
