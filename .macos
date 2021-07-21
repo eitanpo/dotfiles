@@ -1,7 +1,6 @@
 #!/usr/bin/env bash
 
 # ~/.macos — https://mths.be/macos
-# https://macos-defaults.com
 
 # Close any open System Preferences panes, to prevent them from overriding
 # settings we’re about to change
@@ -33,9 +32,6 @@ defaults write NSGlobalDomain AppleShowScrollBars -string "Always"
 # Disable the over-the-top focus ring animation
 defaults write NSGlobalDomain NSUseAnimatedFocusRing -bool false
 
-# Adjust toolbar title rollover delay
-defaults write NSGlobalDomain NSToolbarTitleViewRolloverDelay -float 0
-
 # Increase window resize speed for Cocoa applications
 defaults write NSGlobalDomain NSWindowResizeTime -float 0.001
 
@@ -63,8 +59,8 @@ defaults write com.apple.LaunchServices LSQuarantine -bool false
 # Try e.g. `cd /tmp; unidecode "\x{0000}" > cc.txt; open -e cc.txt`
 defaults write NSGlobalDomain NSTextShowsControlCharacters -bool true
 
-# Disable Close windows when quitting an app
-defaults write NSGlobalDomain NSQuitAlwaysKeepsWindows -bool true
+# Disable Resume system-wide
+#defaults write com.apple.systempreferences NSQuitAlwaysKeepsWindows -bool false
 
 # Disable automatic termination of inactive apps
 defaults write NSGlobalDomain NSDisableAutomaticTermination -bool true
@@ -106,10 +102,10 @@ defaults write NSGlobalDomain NSAutomaticSpellingCorrectionEnabled -bool false
 defaults write com.apple.menuextra.clock DateFormat "d MMM  H:mm"
 
 # Add keyboard Shortcut for Zoom
-defaults write -g NSUserKeyEquivalents -dict-add 'Zoom' -string '@~^m'
+defaults write -g NSUserKeyEquivalents -dict-add 'Zoom' -string '@$m'
 
 # Disable ⌘ + M
-#defaults write -g NSUserKeyEquivalents -dict-add 'Minimize' '\0'
+defaults write -g NSUserKeyEquivalents -dict-add 'Minimize' '\0'
 
 ###############################################################################
 # Trackpad, mouse, keyboard, Bluetooth accessories, and input                 #
