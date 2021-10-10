@@ -60,9 +60,5 @@ cask "virtualbox"
 cask "visual-studio-code"
 cask "whatsapp"
 mas "feedly", id: 865500966
-mas "GarageBand", id: 682658836
-mas "iMovie", id: 408981434
-mas "Microsoft Remote Desktop", id: 1295203466
-mas "Quip", id: 1003160018
 mas "Telegram", id: 747648890
 mas "Things", id: 904280696
