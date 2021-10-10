@@ -5,6 +5,8 @@ cd "$(dirname "${BASH_SOURCE}")";
 git pull origin master;
 
 function doIt() {
+	echo "";
+	echo "Copying dotfiles to root ...";
 	rsync --exclude ".git/" \
 		--exclude ".DS_Store" \
 		--exclude ".gitignore" \
@@ -14,6 +16,9 @@ function doIt() {
 		--exclude "resources" \
 		--exclude "osx.setup" \
 		-avh --no-perms . ~;
+	
+	echo "";
+	echo "Sourcing ~/.bash_profile ..."
 	source ~/.bash_profile;
 }
 
