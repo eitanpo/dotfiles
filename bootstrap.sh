@@ -6,6 +6,10 @@ git pull origin master;
 
 function doIt() {
 	echo "";
+	echo "Installing Homebrew ...";
+	/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+	
+	echo "";
 	echo "Copying dotfiles to root ...";
 	rsync --exclude ".git/" \
 		--exclude ".DS_Store" \
