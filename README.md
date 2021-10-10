@@ -2,6 +2,7 @@ Init
 ====
 ```bash
 chsh -s /bin/bash
+exec "$SHELL"
 cd ~ && mkdir Projects && cd Projects
 git clone https://github.com/eitanpo/dotfiles.git && cd dotfiles && source bootstrap.sh
 ```
