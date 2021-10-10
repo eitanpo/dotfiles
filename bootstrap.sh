@@ -2,15 +2,17 @@
 
 cd "$(dirname "${BASH_SOURCE}")";
 
+if [ ! -f "which brew" ]; then
+	echo "";
+	echo "Installing Homebrew ...";
+	/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)";
+fi
+
+echo "";
+echo "Getting latest ...";
 git pull origin master;
 
 function doIt() {
-	if [ ! -f "which brew" ]; then
-		echo "";
-		echo "Installing Homebrew ...";
-		/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)";
-	fi
-	
 	echo "";
 	echo "Copying dotfiles to root ...";
 	rsync --exclude ".git/" \
