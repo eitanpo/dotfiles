@@ -2,7 +2,7 @@
 
 cd "$(dirname "${BASH_SOURCE}")";
 
-if [ ! -f "which brew" ]; then
+if [ ! -f "`which brew`" ]; then
 	echo "";
 	echo "Installing Homebrew ...";
 	/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)";
