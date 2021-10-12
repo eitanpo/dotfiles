@@ -20,6 +20,7 @@ source ~/.macos
 ```
 
 Configure Terminal colors by importing theme from `resources/` folder.
+Use the imported theme for startup and as default. 
 
 ## Configure Git
 
