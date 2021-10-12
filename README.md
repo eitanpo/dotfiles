@@ -11,10 +11,13 @@ source bootstrap.sh
 
 Setup
 =====
+Review `Brewfile` to remove unnecessary installations.
 ```bash
 source brew.sh
 source ~/.macos
 ```
+
+Configure Terminal colors by importing theme from `resources/` folder.
 
 Update
 ======
