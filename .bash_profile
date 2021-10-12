@@ -86,3 +86,8 @@ fi
 if [ -f "/opt/vagrant/embedded/gems/2.2.16/gems/vagrant-2.2.16/contrib/bash/completion.sh" ]; then
 	. /opt/vagrant/embedded/gems/2.2.16/gems/vagrant-2.2.16/contrib/bash/completion.sh
 fi
+
+# JDK 11
+if [ -d "/Library/Java/JavaVirtualMachines/adoptopenjdk-11.jdk" ]; then
+	export PATH="/Library/Java/JavaVirtualMachines/adoptopenjdk-11.jdk/Contents/Home/bin:$PATH"
+fi
