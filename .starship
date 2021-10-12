@@ -1,5 +1,9 @@
 add_newline = true
 
+[username]
+disabled = false
+show_always = true
+
 [cmd_duration]
 min_time = 3_000
 
