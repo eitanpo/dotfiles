@@ -21,7 +21,7 @@ source ~/.macos
 
 Configure Terminal colors by importing theme from `resources/` folder.
 
-# Configure Git
+## Configure Git
 
 ```
 git config --global user.email "you@example.com"
