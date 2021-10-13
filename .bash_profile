@@ -85,6 +85,7 @@ fi
 # Vagrant
 if [ -f "/opt/vagrant/embedded/gems/2.2.16/gems/vagrant-2.2.16/contrib/bash/completion.sh" ]; then
 	. /opt/vagrant/embedded/gems/2.2.16/gems/vagrant-2.2.16/contrib/bash/completion.sh
+	export CONTAINER_HOST=ssh://vagrant@127.0.0.1:2222/run/podman/podman.sock
 fi
 
 # JDK 11
