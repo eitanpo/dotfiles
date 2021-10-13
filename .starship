@@ -1,7 +1,7 @@
 add_newline = true
 
 [username]
-disabled = false
+disabled = true
 show_always = true
 
 [cmd_duration]
