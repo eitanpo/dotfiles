@@ -92,3 +92,18 @@ fi
 if [ -d "/Library/Java/JavaVirtualMachines/adoptopenjdk-11.jdk" ]; then
 	export PATH="/Library/Java/JavaVirtualMachines/adoptopenjdk-11.jdk/Contents/Home/bin:$PATH"
 fi
+
+# local bin
+if [ -d "$HOME/.local/bin" ]; then
+	export PATH="$PATH:$HOME/.local/bin"
+fi
+
+# bazel
+if [ -f "$HOME/.bazelenv" ]; then
+	source "$HOME/.bazelenv"
+fi
+
+# fnm
+if command -v fnm 1>/dev/null 2>&1; then
+	eval "$(fnm env)"
+fi
