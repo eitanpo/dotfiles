@@ -1,3 +1,7 @@
+# Print shell and version
+echo $SHELL $BASH_VERSION
+echo
+
 # Add Homebrew sbin to the `$PATH`
 export PATH="/usr/local/sbin:$PATH"
 
@@ -101,6 +105,11 @@ fi
 # bazel
 if [ -f "$HOME/.bazelenv" ]; then
 	source "$HOME/.bazelenv"
+fi
+
+# fnm
+if command -v fnm 1>/dev/null 2>&1; then
+	eval "$(fnm env)"
 fi
 
 # fnm
