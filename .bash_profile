@@ -3,7 +3,7 @@ echo $SHELL $BASH_VERSION
 echo
 
 # Add Homebrew sbin to the `$PATH`
-export PATH="/usr/local/sbin:$PATH"
+eval "$(/opt/homebrew/bin/brew shellenv)"
 
 # Load the shell dotfiles, and then some:
 # * ~/.path can be used to extend `$PATH`.
@@ -30,13 +30,15 @@ for option in autocd globstar; do
 done;
 
 # Add tab completion for many Bash commands
-if [ -f "`which brew`" ] && [ -r "$(brew --prefix)/etc/profile.d/bash_completion.sh" ]; then
-	# Ensure existing Homebrew v1 completions continue to work
-	export BASH_COMPLETION_COMPAT_DIR="$(brew --prefix)/etc/bash_completion.d";
-	source "$(brew --prefix)/etc/profile.d/bash_completion.sh";
-elif [ -f /etc/bash_completion ]; then
-	source /etc/bash_completion;
-fi;
+if [[ $TERM_PROGRAM != "WarpTerminal" ]]; then
+	if [ -f "`which brew`" ] && [ -r "$(brew --prefix)/etc/profile.d/bash_completion.sh" ]; then
+		# Ensure existing Homebrew v1 completions continue to work
+		export BASH_COMPLETION_COMPAT_DIR="$(brew --prefix)/etc/bash_completion.d";
+		source "$(brew --prefix)/etc/profile.d/bash_completion.sh";
+	elif [ -f /etc/bash_completion ]; then
+		source /etc/bash_completion;
+	fi;
+fi
 
 # Enable tab completion for `g` by marking it as an alias for `git`
 if type _git &> /dev/null; then
@@ -112,7 +114,4 @@ if command -v fnm 1>/dev/null 2>&1; then
 	eval "$(fnm env)"
 fi
 
-# fnm
-if command -v fnm 1>/dev/null 2>&1; then
-	eval "$(fnm env)"
-fi
+# appended from shell scripts

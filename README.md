@@ -4,8 +4,8 @@
 chsh -s /bin/bash
 exec "$SHELL"
 cd ~ && mkdir Projects && cd Projects
-git clone https://github.com/eitanpo/dotfiles.git && cd dotfiles
-source bootstrap.sh
+git clone https://github.com/eitanpo/dotfiles.git
+cd dotfiles && source bootstrap.sh
 ```
 
 > You might be asked to install Xcode Command Line Tools
@@ -19,8 +19,8 @@ source brew.sh
 source ~/.macos
 ```
 
-Configure Terminal colors by importing theme from `resources/` folder.
-Use the imported theme for startup and as default. 
+Configure Terminal colors by importing theme from `resources/` folder (a new theme would be created).
+Use the imported theme for startup and as default.
 
 ## Configure Git
 

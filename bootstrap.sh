@@ -5,6 +5,9 @@ if [ ! -f "`which brew`" ]; then
 	echo "";
 	echo "Installing Homebrew ...";
 	/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)";
+
+	# for M1
+	eval "$(/opt/homebrew/bin/brew shellenv)"
 fi
 
 
