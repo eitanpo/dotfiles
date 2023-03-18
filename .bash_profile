@@ -1,6 +1,9 @@
+if [ -f "/opt/homebrew/bin/bash" ]; then
+	export SHELL="/opt/homebrew/bin/bash"
+fi
+
 # Print shell and version
 echo $SHELL $BASH_VERSION
-echo
 
 # Add Homebrew sbin to the `$PATH`
 eval "$(/opt/homebrew/bin/brew shellenv)"
@@ -9,7 +12,7 @@ eval "$(/opt/homebrew/bin/brew shellenv)"
 # * ~/.path can be used to extend `$PATH`.
 # * ~/.extra can be used for other settings you don’t want to commit.
 for file in ~/.{path,exports,aliases,functions,extra}; do
-	[ -r "$file" ] && [ -f "$file" ] && echo "sourcing "$file"" && source "$file";
+	[ -r "$file" ] && [ -f "$file" ] && echo ""$file"" && source "$file";
 done;
 unset file;
 
