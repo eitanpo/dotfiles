@@ -90,7 +90,7 @@ if command -v pyenv &>/dev/null; then
 
 	eval "$(pyenv init --path)"
 	eval "$(pyenv init -)"
-	eval "$(pyenv virtualenv-init -)"
+	command -v pyenv-virtualenv-init &>/dev/null && eval "$(pyenv virtualenv-init -)"
 fi
 
 # Vagrant
