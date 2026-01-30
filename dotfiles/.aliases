@@ -46,7 +46,6 @@ alias egrep='egrep --color=auto'
 # Modern CLI tools - override above if installed
 command -v eza &>/dev/null && alias ls="eza" && alias l="eza -l" && alias la="eza -la" && alias ll="eza -la" && alias lsd="eza -lD" && alias tree="eza --tree"
 command -v bat &>/dev/null && alias cat="bat --paging=never" && alias catp="bat"
-command -v rg &>/dev/null && alias grep="rg" && alias fgrep="rg -F" && alias egrep="rg"
 
 # Enable aliases to be sudo’ed
 alias sudo='sudo '
