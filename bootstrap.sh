@@ -31,20 +31,22 @@ read -p "This may overwrite files in ~. Continue? (y/n) " -n 1; echo
 read -p "Pull latest from GitHub? (y/n) " -n 1; echo
 [[ $REPLY =~ ^[Yy]$ ]] && git -C "$DIR" pull origin master
 
+echo
 echo "Syncing dotfiles to ~ ..."
 rsync -avh --no-perms "$DIR/dotfiles/" ~ --exclude=".DS_Store"
 
+echo
 echo "Setting DOTFILES_DIR in ~/.exports ..."
 echo -e "\n# Dotfiles location (set by bootstrap.sh)\nexport DOTFILES_DIR=\"$DIR\"" >> ~/.exports
 
+echo
 echo "Creating skills symlinks ..."
 for dir in ~/.cursor ~/.claude ~/.gemini; do
     mkdir -p "$dir"
     ln -sfn "$DIR/resources/skills" "$dir/skills"
 done
 
+echo
 echo "Reloading shell ..."
 set +e  # Disable exit-on-error for bash_profile (some commands return non-zero normally)
 source ~/.bash_profile
-
-echo "Done!"
