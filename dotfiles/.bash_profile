@@ -1,7 +1,3 @@
-if [ -f "/opt/homebrew/bin/bash" ]; then
-	export SHELL="/opt/homebrew/bin/bash"
-fi
-
 # Print shell and version
 echo $SHELL $BASH_VERSION
 

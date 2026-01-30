@@ -29,7 +29,8 @@ if [ -f "$BREW_BASH" ]; then
 		echo "Adding $BREW_BASH to /etc/shells ..."
 		echo "$BREW_BASH" | sudo tee -a /etc/shells
 	}
-	[ "$SHELL" != "$BREW_BASH" ] && {
+	CURRENT_SHELL=$(dscl . -read /Users/$USER UserShell | awk '{print $2}')
+	[ "$CURRENT_SHELL" != "$BREW_BASH" ] && {
 		echo "Setting $BREW_BASH as default shell ..."
 		chsh -s "$BREW_BASH"
 	}
