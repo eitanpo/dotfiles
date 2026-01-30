@@ -48,9 +48,7 @@ rsync -avh --no-perms "$dotfiles_dir"/ ~ \
 	--exclude="Brewfile" \
 	--exclude="README.md" \
 	--exclude="AGENTS.md" \
-	--exclude="shortcuts.ahk" \
-	--exclude="resources" \
-	--exclude="osx.setup"
+	--exclude="resources"
 
 # Set DOTFILES_DIR in ~/.exports
 echo -e "\n# Dotfiles location (set by bootstrap.sh)\nexport DOTFILES_DIR=\"$dotfiles_dir\"" >> ~/.exports
