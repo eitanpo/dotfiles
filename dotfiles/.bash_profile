@@ -23,6 +23,18 @@ for option in nocaseglob histappend cdspell dirspell autocd globstar cmdhist; do
 	shopt -s "$option" 2>/dev/null || true
 done
 
+# History sharing across terminals
+# - Append to history file after each command (preserves history on crash)
+# - Merge and deduplicate history on shell exit
+_historymerge() {
+	history -n  # read new lines from history file
+	history -w  # write history (triggers erasedups)
+	history -c  # clear in-memory history
+	history -r  # reload from file
+}
+trap _historymerge EXIT
+PROMPT_COMMAND="history -a${PROMPT_COMMAND:+; $PROMPT_COMMAND}"
+
 # Add tab completion for many Bash commands
 if [[ $TERM_PROGRAM != "WarpTerminal" ]]; then
 	if command -v brew &>/dev/null && [ -r "$(brew --prefix)/etc/profile.d/bash_completion.sh" ]; then

@@ -6,11 +6,17 @@ export EDITOR='vim';
 # Make Python use UTF-8 encoding for output to stdin, stdout, and stderr.
 export PYTHONIOENCODING='UTF-8';
 
-# Increase Bash history size. Allow 32³ entries; the default is 500.
-export HISTSIZE='32768';
-export HISTFILESIZE="${HISTSIZE}";
-# Omit duplicates and commands that begin with a space from history.
-export HISTCONTROL='ignoreboth';
+# Bash history configuration
+# HISTSIZE: commands kept in memory per session (default: 500)
+# HISTFILESIZE: commands kept in ~/.bash_history (-1 = unlimited)
+export HISTSIZE='100000';
+export HISTFILESIZE='-1';
+# HISTCONTROL options:
+# - ignoreboth: shorthand for ignorespace + ignoredups
+#   - ignorespace: ignore commands starting with space (useful for secrets)
+#   - ignoredups: ignore consecutive duplicate commands
+# - erasedups: remove all previous occurrences when saving a new command
+export HISTCONTROL='ignoreboth:erasedups';
 
 # Single sessions history
 export SHELL_SESSION_HISTORY=0
