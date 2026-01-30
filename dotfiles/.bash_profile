@@ -12,7 +12,7 @@ eval "$(/opt/homebrew/bin/brew shellenv)"
 # * ~/.path can be used to extend `$PATH`.
 # * ~/.extra can be used for other settings you don’t want to commit.
 for file in ~/.{path,exports,aliases,functions,extra}; do
-	[ -r "$file" ] && [ -f "$file" ] && echo ""$file"" && source "$file";
+	[ -r "$file" ] && [ -f "$file" ] && source "$file";
 done;
 unset file;
 
