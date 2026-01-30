@@ -3,7 +3,17 @@
 # Update Homebrew and regenerate Brewfile
 function update() {
 	brew update && brew upgrade && brew cleanup && \
-	brew bundle dump --force --file="$DOTFILES_DIR/Brewfile"
+	brew bundle dump --force --file="$DOTFILES_DIR/resources/Brewfile"
+}
+
+# Sync dotfiles from ~ back to repo and update Brewfile
+function sync-dotfiles() {
+	[ -z "$DOTFILES_DIR" ] && echo "DOTFILES_DIR not set" && return 1
+	echo "Syncing dotfiles from ~ to repo..."
+	rsync -avh --no-perms --existing ~/ "$DOTFILES_DIR/dotfiles/" --exclude=".DS_Store"
+	echo "Updating Brewfile..."
+	brew bundle dump --force --file="$DOTFILES_DIR/resources/Brewfile"
+	echo "Done. Review changes with: cd $DOTFILES_DIR && git diff"
 }
 
 # Create a new directory and enter it
