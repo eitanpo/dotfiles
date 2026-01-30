@@ -49,9 +49,6 @@ alias sudo='sudo '
 # Get week number
 alias week='date +%V'
 
-# Update Homebrew
-alias update='brew update; brew upgrade; brew cleanup;'
-
 # Google Chrome
 alias chrome='/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome'
 #alias canary='/Applications/Google\ Chrome\ Canary.app/Contents/MacOS/Google\ Chrome\ Canary'

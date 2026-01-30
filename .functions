@@ -1,5 +1,11 @@
 #!/usr/bin/env bash
 
+# Update Homebrew and regenerate Brewfile
+function update() {
+	brew update && brew upgrade && brew cleanup && \
+	brew bundle dump --force --file="$DOTFILES_DIR/Brewfile"
+}
+
 # Create a new directory and enter it
 function mkd() {
 	mkdir -p "$@" && cd "$_";

@@ -1,49 +1,59 @@
 #!/usr/bin/env bash
 
-# Install Homebrew if missing
-if [ ! -f "`which brew`" ]; then
-	echo "";
-	echo "Installing Homebrew ...";
-	/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)";
+dotfiles_dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
-	# for M1
+install_packages() {
+	local brew_prefix=$(brew --prefix)
+
+	echo "Installing packages from Brewfile ..."
+	brew bundle --file="$dotfiles_dir/Brewfile"
+
+	# macOS lacks sha256sum; symlink GNU version
+	[ ! -f "${brew_prefix}/bin/sha256sum" ] && \
+		ln -s "${brew_prefix}/bin/gsha256sum" "${brew_prefix}/bin/sha256sum"
+
+	# Set brew bash as default shell
+	if ! fgrep -q "${brew_prefix}/bin/bash" /etc/shells; then
+		echo "${brew_prefix}/bin/bash" | sudo tee -a /etc/shells
+		chsh -s "${brew_prefix}/bin/bash"
+	fi
+
+	brew cleanup
+}
+
+# Install Homebrew and packages if missing
+if ! command -v brew &>/dev/null; then
+	echo "Installing Homebrew ..."
+	/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 	eval "$(/opt/homebrew/bin/brew shellenv)"
+	install_packages
 fi
 
+read -p "This may overwrite existing files in your home directory. Are you sure? (y/n) " -n 1
+echo
 
-read -p "This may overwrite existing files in your home directory. Are you sure? (y/n) " -n 1;
-echo "";
+[[ ! $REPLY =~ ^[Yy]$ ]] && exit 0
 
-if [[ $REPLY =~ ^[Yy]$ ]]; then
-	dotfiles_dir="~/Projects/dotfiles";
+read -p "Pull latest from GitHub? (y/n) " -n 1
+echo
 
-	# Get latest
-	read -p "Do you want to get latest from GitHub? (y/n)" -n 1;
-	echo "";
+[[ $REPLY =~ ^[Yy]$ ]] && git -C "$dotfiles_dir" pull origin master
 
-	if [[ $REPLY =~ ^[Yy]$ ]]; then
-		echo "";
-		echo "Getting latest ...";
-		cd "$dotfiles_dir";
-		git pull origin master;
-		cd ~;
-	fi;
+echo "Copying dotfiles to ~ ..."
+rsync -avh --no-perms "$dotfiles_dir"/ ~ \
+	--exclude=".git/" \
+	--exclude=".DS_Store" \
+	--exclude=".gitignore" \
+	--exclude="bootstrap.sh" \
+	--exclude="Brewfile" \
+	--exclude="README.md" \
+	--exclude="AGENTS.md" \
+	--exclude="shortcuts.ahk" \
+	--exclude="resources" \
+	--exclude="osx.setup"
 
-	echo "";
-	echo "Copying dotfiles from $dotfiles_dir to user root ...";
-	rsync --exclude ".git/" \
-		--exclude ".DS_Store" \
-		--exclude ".gitignore" \
-		--exclude "bootstrap.sh" \
-		--exclude "README.md" \
-		--exclude "shortcuts.ahk" \
-		--exclude "resources" \
-		--exclude "osx.setup" \
-		-avh --no-perms "$dotfiles_dir"/ ~;
-	
-	echo "";
-	echo "Sourcing ~/.bash_profile ...";
-	echo "No need to restart terminal.";
-	source ~/.bash_profile;
-fi;
- 
+# Set DOTFILES_DIR in ~/.exports
+echo -e "\n# Dotfiles location (set by bootstrap.sh)\nexport DOTFILES_DIR=\"$dotfiles_dir\"" >> ~/.exports
+
+echo "Sourcing ~/.bash_profile ..."
+source ~/.bash_profile

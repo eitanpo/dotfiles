@@ -6,8 +6,7 @@ macOS development environment configuration. Files are copied from repo to `~` v
 
 | File | Purpose |
 |------|---------|
-| `bootstrap.sh` | Entry point - installs Homebrew, syncs dotfiles to ~ |
-| `brew.sh` | Runs `brew bundle`, switches to Homebrew bash |
+| `bootstrap.sh` | Entry point - installs Homebrew, syncs dotfiles to ~, installs packages, sets up bash |
 | `Brewfile` | Package list (brew, cask, mas), generated via `brew bundle dump` |
 | `.macos` | macOS system preferences via `defaults` |
 | `.bash_profile` | Main shell config, loads modules below |
@@ -22,7 +21,7 @@ macOS development environment configuration. Files are copied from repo to `~` v
 ```bash
 # Initial setup
 cd ~/Projects/dotfiles && source bootstrap.sh
-source brew.sh && source ~/.macos
+source ~/.macos
 
 # Update existing install
 source ~/Projects/dotfiles/bootstrap.sh
@@ -35,7 +34,7 @@ source ~/Projects/dotfiles/bootstrap.sh
 - **Aliases**: Add to `.aliases`
 - **Functions**: Add to `.functions`
 - **Environment variables**: Add to `.exports`
-- **Packages**: Install via `brew install`, then regenerate `Brewfile` with `brew bundle dump --force`
+- **Packages**: Install via `brew install`, then run `update` (which regenerates `Brewfile`)
 
 ### Conditional Check Pattern
 ```bash
