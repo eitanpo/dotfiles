@@ -1,20 +1,21 @@
 # Dotfiles Repository
 
-macOS development environment configuration. Files are copied from repo to `~` via rsync.
+macOS development environment configuration. Files in `dotfiles/` are copied to `~` via rsync.
 
 ## Structure
 
-| File | Purpose |
+| Path | Purpose |
 |------|---------|
-| `bootstrap.sh` | Entry point - installs Homebrew, syncs dotfiles to ~, installs packages, sets up bash |
+| `bootstrap.sh` | Entry point - installs Homebrew, syncs dotfiles, installs packages, sets up bash |
 | `Brewfile` | Package list (brew, cask, mas), generated via `brew bundle dump` |
-| `.macos` | macOS system preferences via `defaults` |
-| `.bash_profile` | Main shell config, loads modules below |
-| `.aliases` | Shell aliases |
-| `.functions` | Utility functions |
-| `.exports` | Environment variables |
-| `.vimrc` | Vim config (Solarized theme) |
-| `.starship` | Starship prompt config |
+| `dotfiles/` | Dotfiles synced to ~ |
+| `dotfiles/.bash_profile` | Main shell config, loads modules below |
+| `dotfiles/.aliases` | Shell aliases |
+| `dotfiles/.functions` | Utility functions |
+| `dotfiles/.exports` | Environment variables |
+| `dotfiles/.macos` | macOS system preferences via `defaults` |
+| `dotfiles/.vimrc` | Vim config (Solarized theme) |
+| `dotfiles/.starship` | Starship prompt config |
 
 ## Usage
 
@@ -30,10 +31,10 @@ source ~/Projects/dotfiles/bootstrap.sh
 ## Agent Guidelines
 
 ### Modifying Config
-- **New tool integrations**: Add to `.bash_profile` with conditional check
-- **Aliases**: Add to `.aliases`
-- **Functions**: Add to `.functions`
-- **Environment variables**: Add to `.exports`
+- **New tool integrations**: Add to `dotfiles/.bash_profile` with conditional check
+- **Aliases**: Add to `dotfiles/.aliases`
+- **Functions**: Add to `dotfiles/.functions`
+- **Environment variables**: Add to `dotfiles/.exports`
 - **Packages**: Install via `brew install`, then run `update` (which regenerates `Brewfile`)
 
 ### Conditional Check Pattern
