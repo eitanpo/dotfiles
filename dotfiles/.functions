@@ -7,6 +7,8 @@ function update() {
 }
 
 # Sync dotfiles and agent config from ~ to repo
+# Note: --existing only syncs files already in repo (new files ignored).
+# Skills are symlinked so edits in ~/.cursor/skills etc. update repo directly.
 function sync-dotfiles() {
 	[ -z "$DOTFILES_DIR" ] && echo "DOTFILES_DIR not set" && return 1
 
@@ -47,11 +49,11 @@ function targz() {
 	);
 
 	local cmd="";
-	if (( size < 52428800 )) && hash zopfli 2> /dev/null; then
+	if (( size < 52428800 )) && command -v zopfli &>/dev/null; then
 		# the .tar file is smaller than 50 MB and Zopfli is available; use it
 		cmd="zopfli";
 	else
-		if hash pigz 2> /dev/null; then
+		if command -v pigz &>/dev/null; then
 			cmd="pigz";
 		else
 			cmd="gzip";
@@ -85,12 +87,11 @@ function fs() {
 }
 
 # Use Git’s colored diff when available
-hash git &>/dev/null;
-if [ $? -eq 0 ]; then
+if command -v git &>/dev/null; then
 	function diff() {
 		git diff --no-index --color-words "$@";
 	}
-fi;
+fi
 
 # Create a data URL from a file
 function dataurl() {

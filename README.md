@@ -1,35 +1,41 @@
-# Init
+# Dotfiles
+
+macOS development environment configuration.
+
+## Quick Start
 
 ```bash
+# Initial setup
 chsh -s /bin/bash
-exec "$SHELL"
-cd ~ && mkdir Projects && cd Projects
+cd ~ && mkdir -p Projects && cd Projects
 git clone https://github.com/eitanpo/dotfiles.git
 cd dotfiles && source bootstrap.sh
-```
 
-> You might be asked to install Xcode Command Line Tools
-
-# Setup
-
-Review `Brewfile` to remove unnecessary installations.
-
-```bash
-source brew.sh
+# Apply macOS preferences (optional)
 source ~/.macos
 ```
 
-Configure Terminal colors by importing theme from `resources/` folder (a new theme would be created).
-Use the imported theme for startup and as default.
+> You may be prompted to install Xcode Command Line Tools.
 
-## Configure Git
+## Post-Setup
 
-```
-git config --global user.email "you@example.com"
-git config --global user.name "Your Name"
-```
+1. Review and customize `resources/Brewfile` before running `update`
+2. Configure Terminal colors by importing theme from `resources/` folder
+3. Configure Git:
+   ```bash
+   git config --global user.email "you@example.com"
+   git config --global user.name "Your Name"
+   ```
 
-# Update
+## Documentation
+
+See `AGENTS.md` for detailed documentation on:
+- Repository structure
+- Where to add aliases, functions, exports, packages
+- Agent configuration (skills, rules, instructions)
+- Sync commands
+
+## Update
 
 ```bash
 source ~/Projects/dotfiles/bootstrap.sh

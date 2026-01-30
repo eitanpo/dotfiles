@@ -34,7 +34,7 @@ done;
 
 # Add tab completion for many Bash commands
 if [[ $TERM_PROGRAM != "WarpTerminal" ]]; then
-	if [ -f "`which brew`" ] && [ -r "$(brew --prefix)/etc/profile.d/bash_completion.sh" ]; then
+	if command -v brew &>/dev/null && [ -r "$(brew --prefix)/etc/profile.d/bash_completion.sh" ]; then
 		# Ensure existing Homebrew v1 completions continue to work
 		export BASH_COMPLETION_COMPAT_DIR="$(brew --prefix)/etc/bash_completion.d";
 		source "$(brew --prefix)/etc/profile.d/bash_completion.sh";
@@ -59,30 +59,32 @@ complete -W "NSGlobalDomain" defaults;
 complete -o "nospace" -W "Contacts Calendar Dock Finder Mail Safari iTunes SystemUIServer Terminal Twitter" killall;
 
 # Add eksctl completion
-if command -v eksctl 1>/dev/null 2>&1; then
+if command -v eksctl &>/dev/null; then
 	. <(eksctl completion bash)
 fi
 
 # Add direnv
-if command -v direnv 1>/dev/null 2>&1; then
+if command -v direnv &>/dev/null; then
 	eval "$(direnv hook bash)"
 fi
 
 # Starship
-if command -v starship 1>/dev/null 2>&1; then
+if command -v starship &>/dev/null; then
 	eval "$(starship init bash)"
 fi
 
-# gcloud
-if [ -e "/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk" ]; then
-	# add gcloud to path
-	source /usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.bash.inc
-	# gcloud completion
-	source /usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.bash.inc
-fi
+# gcloud (supports both Intel and Apple Silicon paths)
+for gcloud_dir in "/opt/homebrew/Caskroom/google-cloud-sdk/latest/google-cloud-sdk" \
+                  "/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk"; do
+	if [ -e "$gcloud_dir" ]; then
+		source "$gcloud_dir/path.bash.inc"
+		source "$gcloud_dir/completion.bash.inc"
+		break
+	fi
+done
 
 # Add pyenv
-if command -v pyenv 1>/dev/null 2>&1; then
+if command -v pyenv &>/dev/null; then
 	export PYENV_ROOT="$HOME/.pyenv"
 	export PATH="$PYENV_ROOT/bin:$PATH"
 
@@ -92,15 +94,10 @@ if command -v pyenv 1>/dev/null 2>&1; then
 fi
 
 # Vagrant
-if command -v vagrant 1>/dev/null 2>&1; then
+if command -v vagrant &>/dev/null; then
 	vagrant_completion=$(find /opt/vagrant/embedded/gems -name "completion.sh" 2>/dev/null | head -1)
 	[ -n "$vagrant_completion" ] && . "$vagrant_completion"
 	export CONTAINER_HOST=ssh://vagrant@127.0.0.1:2222/run/podman/podman.sock
-fi
-
-# JDK 11
-if [ -d "/Library/Java/JavaVirtualMachines/adoptopenjdk-11.jdk" ]; then
-	export PATH="/Library/Java/JavaVirtualMachines/adoptopenjdk-11.jdk/Contents/Home/bin:$PATH"
 fi
 
 # local bin
@@ -114,7 +111,7 @@ if [ -f "$HOME/.bazelenv" ]; then
 fi
 
 # fnm
-if command -v fnm 1>/dev/null 2>&1; then
+if command -v fnm &>/dev/null; then
 	eval "$(fnm env)"
 fi
 

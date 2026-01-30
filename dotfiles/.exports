@@ -36,6 +36,6 @@ export DOTNET_CLI_TELEMETRY_OPTOUT=1
 export DOTNET_ROOT="/usr/local/opt/dotnet/libexec"
 
 # podman
-if [ -f "~/Projects/podman/.vagrant/machines/default/virtualbox/private_key" ]; then
-    export CONTAINER_SSHKEY=~/Projects/podman/.vagrant/machines/default/virtualbox/private_key
+if [ -f "$HOME/Projects/podman/.vagrant/machines/default/virtualbox/private_key" ]; then
+    export CONTAINER_SSHKEY="$HOME/Projects/podman/.vagrant/machines/default/virtualbox/private_key"
 fi
