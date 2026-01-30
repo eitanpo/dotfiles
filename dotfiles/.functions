@@ -11,7 +11,7 @@ function sync-dotfiles() {
 	[ -z "$DOTFILES_DIR" ] && echo "DOTFILES_DIR not set" && return 1
 
 	# Agent config items to sync (relative to ~)
-	local items=(.cursor/mcp.json .cursor/rules .claude/CLAUDE.md .claude/agents .gemini/GEMINI.md)
+	local items=(.cursor/rules .claude/CLAUDE.md .claude/agents .gemini/GEMINI.md)
 
 	echo "Syncing dotfiles from ~ to repo..."
 	rsync -avh --no-perms --existing ~/ "$DOTFILES_DIR/dotfiles/" --exclude=".DS_Store"
