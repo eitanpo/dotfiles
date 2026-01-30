@@ -92,8 +92,9 @@ if command -v pyenv 1>/dev/null 2>&1; then
 fi
 
 # Vagrant
-if [ -f "/opt/vagrant/embedded/gems/2.2.16/gems/vagrant-2.2.16/contrib/bash/completion.sh" ]; then
-	. /opt/vagrant/embedded/gems/2.2.16/gems/vagrant-2.2.16/contrib/bash/completion.sh
+if command -v vagrant 1>/dev/null 2>&1; then
+	vagrant_completion=$(find /opt/vagrant/embedded/gems -name "completion.sh" 2>/dev/null | head -1)
+	[ -n "$vagrant_completion" ] && . "$vagrant_completion"
 	export CONTAINER_HOST=ssh://vagrant@127.0.0.1:2222/run/podman/podman.sock
 fi
 
@@ -127,11 +128,13 @@ if [ -d "$HOME/.cargo/bin" ]; then
 	export PATH="$PATH:$HOME/.cargo/bin"
 fi
 
-# appended from shell scripts
+# bazel@7
+if [ -d "/opt/homebrew/opt/bazel@7/bin" ]; then
+	export PATH="/opt/homebrew/opt/bazel@7/bin:$PATH"
+fi
 
-export PATH="/opt/homebrew/opt/bazel@7/bin:$PATH"
-
-# FIXME: add verification
 # java
-export JAVA_HOME="$(/usr/libexec/java_home -v 11)"
-export PATH="$JAVA_HOME/bin:$PATH"
+if /usr/libexec/java_home -v 11 &>/dev/null; then
+	export JAVA_HOME="$(/usr/libexec/java_home -v 11)"
+	export PATH="$JAVA_HOME/bin:$PATH"
+fi
