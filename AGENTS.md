@@ -8,7 +8,7 @@ macOS development environment configuration. Files are copied from repo to `~` v
 |------|---------|
 | `bootstrap.sh` | Entry point - installs Homebrew, syncs dotfiles to ~ |
 | `brew.sh` | Runs `brew bundle`, switches to Homebrew bash |
-| `Brewfile` | Package list (brew, cask, mas) |
+| `Brewfile` | Package list (brew, cask, mas), generated via `brew bundle dump` |
 | `.macos` | macOS system preferences via `defaults` |
 | `.bash_profile` | Main shell config, loads modules below |
 | `.aliases` | Shell aliases |
@@ -35,7 +35,7 @@ source ~/Projects/dotfiles/bootstrap.sh
 - **Aliases**: Add to `.aliases`
 - **Functions**: Add to `.functions`
 - **Environment variables**: Add to `.exports`
-- **Packages**: Add to `Brewfile`
+- **Packages**: Install via `brew install`, then regenerate `Brewfile` with `brew bundle dump --force`
 
 ### Conditional Check Pattern
 ```bash
