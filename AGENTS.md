@@ -15,7 +15,7 @@ macOS development environment configuration. Files in `dotfiles/` sync to `~` vi
 
 ```bash
 cd ~/Projects/dotfiles && source bootstrap.sh  # Initial or update
-source ~/.macos                                 # Apply macOS preferences
+source macos.sh                                 # Apply macOS preferences
 ```
 
 ## Agent Configuration
@@ -66,4 +66,4 @@ fi
 
 - **Source of truth**: This repo. Edits in `~` are overwritten on bootstrap.
 - **Skills exception**: Skills are symlinked, so edits in `~/.cursor/skills/` etc. update the repo directly.
-- **Other config**: `.macos` (system prefs), `.vimrc` (Solarized), `.starship` (prompt)
+- **Other config**: `macos.sh` (system prefs), `.vimrc` (Solarized), `.starship` (prompt)

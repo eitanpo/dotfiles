@@ -12,7 +12,7 @@ git clone https://github.com/eitanpo/dotfiles.git
 cd dotfiles && source bootstrap.sh
 
 # Apply macOS preferences (optional)
-source ~/.macos
+source macos.sh
 ```
 
 > You may be prompted to install Xcode Command Line Tools.
