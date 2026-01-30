@@ -1,0 +1,12 @@
+{
+  "mcpServers": {
+    "mcp-http-streamable-wixsso-example": {
+      "type": "http",
+      "url": "https://wix-bo.com/_mcp/mcp-http-streamable-wixsso-example/mcp"
+    },
+    "mcp-http-streamable-bi": {
+      "type": "http",
+      "url": "https://wix-bo.com/_mcp/trino-mcp/mcp"
+    }
+  }
+}

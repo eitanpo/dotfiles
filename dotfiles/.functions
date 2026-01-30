@@ -6,11 +6,21 @@ function update() {
 	brew bundle dump --force --file="$DOTFILES_DIR/resources/Brewfile"
 }
 
-# Sync dotfiles from ~ back to repo and update Brewfile
+# Sync dotfiles and agent config from ~ to repo
 function sync-dotfiles() {
 	[ -z "$DOTFILES_DIR" ] && echo "DOTFILES_DIR not set" && return 1
+
+	# Agent config items to sync (relative to ~)
+	local items=(.cursor/mcp.json .cursor/rules .claude/CLAUDE.md .claude/agents .gemini/GEMINI.md)
+
 	echo "Syncing dotfiles from ~ to repo..."
 	rsync -avh --no-perms --existing ~/ "$DOTFILES_DIR/dotfiles/" --exclude=".DS_Store"
+
+	echo "Syncing agent config..."
+	for item in "${items[@]}"; do
+		[[ -e ~/"$item" ]] && rsync -avh --no-perms ~/"$item" "$DOTFILES_DIR/dotfiles/$(dirname "$item")/"
+	done
+
 	echo "Updating Brewfile..."
 	brew bundle dump --force --file="$DOTFILES_DIR/resources/Brewfile"
 	echo "Done. Review changes with: cd $DOTFILES_DIR && git diff"

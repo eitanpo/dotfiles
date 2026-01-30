@@ -33,4 +33,11 @@ read -p "Pull latest from GitHub? (y/n) " -n 1; echo
 
 rsync -avh --no-perms "$DIR/dotfiles/" ~ --exclude=".DS_Store"
 echo -e "\n# Dotfiles location (set by bootstrap.sh)\nexport DOTFILES_DIR=\"$DIR\"" >> ~/.exports
+
+# Symlink skills to all agents (edit in repo, all agents see instantly)
+for dir in ~/.cursor ~/.claude ~/.gemini; do
+    mkdir -p "$dir"
+    ln -sfn "$DIR/resources/skills" "$dir/skills"
+done
+
 source ~/.bash_profile
