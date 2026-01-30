@@ -32,7 +32,7 @@ read -p "Pull latest from GitHub? (y/n) " -n 1; echo
 [[ $REPLY =~ ^[Yy]$ ]] && git -C "$DIR" pull origin master
 
 echo
-echo "Syncing dotfiles to ~ ..."
+echo "Syncing dotfiles to ~
 rsync -avh --no-perms "$DIR/dotfiles/" ~ --exclude=".DS_Store"
 
 echo
@@ -48,5 +48,7 @@ done
 
 echo
 echo "Reloading shell ..."
+echo
+echo
 set +e  # Disable exit-on-error for bash_profile (some commands return non-zero normally)
 source ~/.bash_profile
