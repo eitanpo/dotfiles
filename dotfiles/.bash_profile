@@ -24,7 +24,11 @@ shopt -s cdspell;
 # Enable some Bash 4 features when possible:
 # * `autocd`, e.g. `**/qux` will enter `./foo/bar/baz/qux`
 # * Recursive globbing, e.g. `echo **/*.txt`
-for option in autocd globstar; do
+# * `cdspell` - autocorrect typos in cd paths
+# * `histappend` - append to history file instead of overwriting
+# * `cmdhist` - save multi-line commands as one history entry
+# * `dirspell` - autocorrect typos in directory names during completion
+for option in autocd globstar cdspell histappend cmdhist dirspell; do
 	shopt -s "$option" 2>/dev/null || true
 done
 
