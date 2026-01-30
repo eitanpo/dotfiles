@@ -10,7 +10,7 @@ if ! command -v brew &>/dev/null; then
 	eval "$(/opt/homebrew/bin/brew shellenv)"
 
 	echo "Installing packages ..."
-	brew bundle --file="$DIR/Brewfile"
+	brew bundle --file="$DIR/resources/Brewfile"
 	brew cleanup
 
 	# macOS lacks sha256sum; symlink GNU version

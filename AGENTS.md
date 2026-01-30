@@ -7,7 +7,7 @@ macOS development environment configuration. Files in `dotfiles/` are copied to 
 | Path | Purpose |
 |------|---------|
 | `bootstrap.sh` | Entry point - installs Homebrew, syncs dotfiles, installs packages, sets up bash |
-| `Brewfile` | Package list (brew, cask, mas), generated via `brew bundle dump` |
+| `resources/Brewfile` | Package list (brew, cask, mas), generated via `brew bundle dump` |
 | `dotfiles/` | Dotfiles synced to ~ |
 | `dotfiles/.bash_profile` | Main shell config, loads modules below |
 | `dotfiles/.aliases` | Shell aliases |
