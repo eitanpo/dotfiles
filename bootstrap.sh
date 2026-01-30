@@ -45,6 +45,7 @@ rsync -avh --no-perms "$DIR/dotfiles/" ~ --exclude=".DS_Store"
 
 echo
 echo "Setting DOTFILES_DIR in ~/.exports"
+# Appending is fine even if already present - last export wins when sourced
 echo -e "\n# Dotfiles location (set by bootstrap.sh)\nexport DOTFILES_DIR=\"$DIR\"" >> ~/.exports
 
 echo

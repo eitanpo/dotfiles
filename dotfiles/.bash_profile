@@ -12,23 +12,14 @@ for file in ~/.{path,exports,aliases,functions,extra}; do
 done;
 unset file;
 
-# Case-insensitive globbing (used in pathname expansion)
-shopt -s nocaseglob;
-
-# Append to the Bash history file, rather than overwriting it
-shopt -s histappend;
-
-# Autocorrect typos in path names when using `cd`
-shopt -s cdspell;
-
-# Enable some Bash 4 features when possible:
-# * `autocd`, e.g. `**/qux` will enter `./foo/bar/baz/qux`
-# * Recursive globbing, e.g. `echo **/*.txt`
-# * `cdspell` - autocorrect typos in cd paths
-# * `histappend` - append to history file instead of overwriting
-# * `cmdhist` - save multi-line commands as one history entry
-# * `dirspell` - autocorrect typos in directory names during completion
-for option in autocd globstar cdspell histappend cmdhist dirspell; do
+# Shell options (Bash 4+)
+# nocaseglob - case-insensitive globbing
+# histappend - append to history file instead of overwriting
+# cdspell/dirspell - autocorrect typos in paths
+# autocd - cd to directory by typing its name
+# globstar - recursive globbing with **
+# cmdhist - save multi-line commands as one entry
+for option in nocaseglob histappend cdspell dirspell autocd globstar cmdhist; do
 	shopt -s "$option" 2>/dev/null || true
 done
 
@@ -73,15 +64,13 @@ if command -v starship &>/dev/null; then
 	eval "$(starship init bash)"
 fi
 
-# gcloud (supports both Intel and Apple Silicon paths)
-for gcloud_dir in "/opt/homebrew/Caskroom/google-cloud-sdk/latest/google-cloud-sdk" \
-                  "/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk"; do
-	if [ -e "$gcloud_dir" ]; then
-		source "$gcloud_dir/path.bash.inc"
-		source "$gcloud_dir/completion.bash.inc"
-		break
-	fi
-done
+# gcloud
+gcloud_dir="$(brew --prefix)/Caskroom/google-cloud-sdk/latest/google-cloud-sdk"
+if [ -e "$gcloud_dir" ]; then
+	source "$gcloud_dir/path.bash.inc"
+	source "$gcloud_dir/completion.bash.inc"
+fi
+unset gcloud_dir
 
 # Add pyenv
 if command -v pyenv &>/dev/null; then
