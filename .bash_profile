@@ -117,4 +117,21 @@ if command -v fnm 1>/dev/null 2>&1; then
 	eval "$(fnm env)"
 fi
 
+# orbstack
+if [ -f "$HOME/.orbstack/shell/init.bash" ]; then
+	source "$HOME/.orbstack/shell/init.bash" 2>/dev/null || :
+fi
+
+# Add cargo
+if [ -d "$HOME/.cargo/bin" ]; then
+	export PATH="$PATH:$HOME/.cargo/bin"
+fi
+
 # appended from shell scripts
+
+export PATH="/opt/homebrew/opt/bazel@7/bin:$PATH"
+
+# FIXME: add verification
+# java
+export JAVA_HOME="$(/usr/libexec/java_home -v 11)"
+export PATH="$JAVA_HOME/bin:$PATH"

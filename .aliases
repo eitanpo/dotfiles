@@ -124,3 +124,4 @@ alias path='echo -e ${PATH//:/\\n}'
 
 # Make python3 default
 alias python=python3
+alias pip=pip3
