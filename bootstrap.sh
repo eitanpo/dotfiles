@@ -56,11 +56,11 @@ for dir in ~/.cursor ~/.claude ~/.gemini; do
 done
 
 echo
-echo "Reloading shell ..."
-echo
+echo "Reloading shell config ..."
+set +e  # Disable exit-on-error for bash_profile (some commands return non-zero normally)
+source ~/.bash_profile
+
 if [ -f "$BREW_BASH" ] && [ "$BASH" != "$BREW_BASH" ]; then
-	exec "$BREW_BASH" -l
-else
-	set +e  # Disable exit-on-error for bash_profile (some commands return non-zero normally)
-	source ~/.bash_profile
+	echo
+	echo "Note: Restart your terminal to use brew bash as default."
 fi
