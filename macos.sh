@@ -126,8 +126,45 @@ defaults write com.apple.dock show-recents -bool false
 # Spotlight                                                                   #
 ###############################################################################
 
-# Disable Spotlight indexing (default: ON)
-sudo mdutil -a -i off
+# Enable Spotlight indexing
+sudo mdutil -a -i on
+
+# Exclude heavy directories from Spotlight indexing
+SPOTLIGHT_PLIST="/System/Volumes/Data/.Spotlight-V100/VolumeConfiguration.plist"
+SPOTLIGHT_EXCLUSIONS=(
+  "$HOME/Personal"
+  "$HOME/Library"
+  "$HOME/Projects"
+  "$HOME/Downloads"
+  "$HOME/Music"
+  "$HOME/OrbStack"
+  "$HOME/ntws"
+  "$HOME/.cache"
+  "$HOME/.pyenv"
+  "$HOME/.yarn"
+  "$HOME/.vscode"
+  "$HOME/.bazelcache"
+  "$HOME/.cursor"
+  "$HOME/.npm"
+  "$HOME/.cargo"
+  "$HOME/.m2"
+  "$HOME/.local"
+  "$HOME/.dropbox"
+  "$HOME/.gem"
+  "$HOME/.config"
+)
+
+for path in "${SPOTLIGHT_EXCLUSIONS[@]}"; do
+  if [[ -d "$path" ]]; then
+    # Skip if already excluded
+    if ! sudo /usr/libexec/PlistBuddy -c "Print :Exclusions" "$SPOTLIGHT_PLIST" 2>/dev/null | grep -q "$path"; then
+      sudo /usr/libexec/PlistBuddy -c "Add :Exclusions: string $path" "$SPOTLIGHT_PLIST"
+    fi
+  fi
+done
+
+# Rebuild index with new exclusions
+sudo mdutil -E /
 
 ###############################################################################
 # Terminal                                                                    #
