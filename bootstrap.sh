@@ -55,6 +55,15 @@ for dir in ~/.cursor ~/.claude ~/.gemini; do
     ln -sfn "$DIR/resources/skills" "$dir/skills"
 done
 
+# Import Terminal.app theme (open command will launch Terminal.app if needed)
+TERMINAL_THEME="$DIR/resources/Catppuccin Macchiato.terminal"
+if [ -f "$TERMINAL_THEME" ]; then
+    echo
+    echo "Importing Terminal.app theme (will open Terminal.app if not running) ..."
+    open "$TERMINAL_THEME"
+    echo "Note: Set 'Catppuccin Macchiato' as default in Terminal > Settings > Profiles"
+fi
+
 echo
 echo "Reloading shell config ..."
 set +e  # Disable exit-on-error for bash_profile (some commands return non-zero normally)
