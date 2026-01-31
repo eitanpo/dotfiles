@@ -40,7 +40,8 @@ Edit skills in `resources/skills/`, changes are immediately visible to all agent
 ### Sync Commands
 
 ```bash
-sync-dotfiles   # Sync changes from ~ to repo (capture local edits)
+dotfiles-sync       # Sync changes from ~ to repo (capture local edits)
+dotfiles-bootstrap  # Run bootstrap.sh from anywhere
 ```
 
 ## Where to Add

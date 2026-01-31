@@ -48,4 +48,4 @@ See `AGENTS.md` for detailed documentation on:
 - Repository structure
 - Where to add aliases, functions, exports, packages
 - Agent configuration (skills, rules, instructions)
-- Sync commands (`sync-dotfiles`)
+- Sync commands (`dotfiles-sync`, `dotfiles-bootstrap`)
