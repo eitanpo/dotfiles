@@ -5,7 +5,16 @@ description: Guidelines for capturing learnings and improving docs/skills. Use a
 
 # Learning Guidelines
 
-1. **Learn** from mistakes, feedback, successes
-2. **Generalize** if broadly applicable
-3. **Scope**: local comment / central docs / skill
-4. **Draft → review → simplify**
+Capture reusable knowledge when you discover something non-obvious. Skip if trivial or already documented.
+
+## Process
+
+1. **Learn**: identify the *actual* lesson, not the surface-level fix
+2. **Generalize**: extract the principle, don't transcribe the specific correction
+3. **Scope**: Matter where? One spot → comment. Project → docs. Everywhere → skill.
+4. **Draft → review → simplify**: write it, re-read for accuracy, cut the fluff
+
+## Verify
+
+- [ ] Captures the principle, not the specific fix
+- [ ] Narrowest scope that covers future cases

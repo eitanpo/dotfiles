@@ -23,7 +23,6 @@ Write minimum code that solves the problem:
 - No features beyond what was asked
 - No abstractions for single-use code
 - No speculative flexibility or error handling
-- Scope docs with their subject
 - Start concise - expand only if asked
 
 Test: "Would a senior engineer say this is overcomplicated?"
