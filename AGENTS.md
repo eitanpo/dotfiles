@@ -53,5 +53,7 @@ Edit skills in `resources/skills/`, changes are immediately visible to all agent
 
 ## Notes
 
+- **Automate fully**: Don't leave manual steps when adding config.
+
 - **Source of truth**: This repo. Edits in `~` are overwritten on bootstrap.
 - **Skills exception**: Skills are symlinked, so edits in `~/.cursor/skills/` etc. update the repo directly.

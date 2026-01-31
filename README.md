@@ -1,6 +1,6 @@
 # Dotfiles
 
-macOS development environment configuration.
+macOS development environment configuration. Goal: automate fully, minimize manual steps.
 
 ## Quick Start
 
@@ -20,13 +20,12 @@ This will:
 
 ## Post-Setup
 
-1. Configure Terminal colors: import theme from `resources/` folder
-2. Configure Git credentials:
+1. Configure Git credentials:
    ```bash
    git config --global user.email "you@example.com"
    git config --global user.name "Your Name"
    ```
-3. Apply macOS preferences (optional): `source macos.sh`
+2. Apply macOS preferences (optional): `source macos.sh`
 
 ## Usage
 
