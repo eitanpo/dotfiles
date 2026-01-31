@@ -33,7 +33,7 @@ This will:
 After initial setup, these aliases are available:
 
 ```bash
-dotfiles-restore  # Apply dotfiles from repo to ~
+dotfiles-apply    # Apply dotfiles from repo to ~
 dotfiles-save     # Save changes from ~ back to repo
 update            # Update Homebrew packages and regenerate Brewfile
 ```

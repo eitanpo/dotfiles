@@ -6,8 +6,8 @@ function update() {
 	brew bundle dump --force --file="$DOTFILES_DIR/resources/Brewfile"
 }
 
-# Restore dotfiles from repo to ~
-function dotfiles-restore() {
+# Apply dotfiles from repo to ~
+function dotfiles-apply() {
 	[ -z "$DOTFILES_DIR" ] && echo "DOTFILES_DIR not set" && return 1
 	source "$DOTFILES_DIR/bootstrap.sh"
 }
