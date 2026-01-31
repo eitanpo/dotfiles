@@ -61,6 +61,11 @@ complete -W "NSGlobalDomain" defaults;
 # Add `killall` tab completion for common apps
 complete -o "nospace" -W "Contacts Calendar Dock Finder Mail Safari iTunes SystemUIServer Terminal Twitter" killall;
 
+# Tool integrations - use this pattern for new tools:
+#   if command -v TOOL &>/dev/null; then
+#       eval "$(TOOL init bash)"
+#   fi
+
 # Add eksctl completion
 if command -v eksctl &>/dev/null; then
 	. <(eksctl completion bash)

@@ -1,5 +1,7 @@
 # Dotfiles Repository
 
+**Never add secrets or PII** (API keys, tokens, passwords, personal information) to this repo.
+
 macOS development environment configuration. Files in `dotfiles/` sync to `~` via rsync.
 
 ## Structure
@@ -56,15 +58,7 @@ dotfiles-bootstrap  # Run bootstrap.sh from anywhere
 | Agent skills | `resources/skills/` |
 | Agent rules | `dotfiles/.cursor/rules/`, `dotfiles/.claude/`, `dotfiles/.gemini/` |
 
-### Conditional Check Pattern
-```bash
-if command -v TOOL 1>/dev/null 2>&1; then
-    eval "$(TOOL init bash)"
-fi
-```
-
 ## Notes
 
 - **Source of truth**: This repo. Edits in `~` are overwritten on bootstrap.
 - **Skills exception**: Skills are symlinked, so edits in `~/.cursor/skills/` etc. update the repo directly.
-- **Other config**: `macos.sh` (system prefs), `.vimrc` (Solarized), `.starship` (prompt)
