@@ -6,16 +6,16 @@ function update() {
 	brew bundle dump --force --file="$DOTFILES_DIR/resources/Brewfile"
 }
 
-# Run bootstrap.sh from anywhere
-function dotfiles-bootstrap() {
+# Restore dotfiles from repo to ~
+function dotfiles-restore() {
 	[ -z "$DOTFILES_DIR" ] && echo "DOTFILES_DIR not set" && return 1
 	source "$DOTFILES_DIR/bootstrap.sh"
 }
 
-# Sync dotfiles and agent config from ~ to repo
+# Save dotfiles and agent config from ~ to repo
 # Note: --existing only syncs files already in repo (new files ignored).
 # Skills are symlinked so edits in ~/.cursor/skills etc. update repo directly.
-function dotfiles-sync() {
+function dotfiles-save() {
 	[ -z "$DOTFILES_DIR" ] && echo "DOTFILES_DIR not set" && return 1
 
 	# Agent config items to sync (relative to ~)

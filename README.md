@@ -28,18 +28,14 @@ This will:
    ```
 3. Apply macOS preferences (optional): `source macos.sh`
 
-## Update
+## Usage
 
-Re-run bootstrap to pull latest and re-sync dotfiles:
-
-```bash
-cd ~/Projects/dotfiles && source bootstrap.sh
-```
-
-Update Homebrew packages and regenerate Brewfile:
+After initial setup, these aliases are available:
 
 ```bash
-update
+dotfiles-restore  # Apply dotfiles from repo to ~
+dotfiles-save     # Save changes from ~ back to repo
+update            # Update Homebrew packages and regenerate Brewfile
 ```
 
 ## Documentation
@@ -48,4 +44,3 @@ See `AGENTS.md` for detailed documentation on:
 - Repository structure
 - Where to add aliases, functions, exports, packages
 - Agent configuration (skills, rules, instructions)
-- Sync commands (`dotfiles-sync`, `dotfiles-bootstrap`)

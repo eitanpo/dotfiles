@@ -39,13 +39,6 @@ Edit skills in `resources/skills/`, changes are immediately visible to all agent
 | `dotfiles/.claude/agents/` | Claude custom subagents |
 | `dotfiles/.gemini/GEMINI.md` | Gemini global instructions |
 
-### Sync Commands
-
-```bash
-dotfiles-sync       # Sync changes from ~ to repo (capture local edits)
-dotfiles-bootstrap  # Run bootstrap.sh from anywhere
-```
-
 ## Where to Add
 
 | Type | File |
