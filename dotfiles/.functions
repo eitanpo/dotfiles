@@ -2,8 +2,16 @@
 
 # Update Homebrew and regenerate Brewfile
 function update() {
-	brew update && brew upgrade && brew cleanup && \
+	brew update && brew upgrade && brew cleanup
+	
+	echo
+	echo "Regenerating Brewfile..."
 	brew bundle dump --force --file="$DOTFILES_DIR/resources/Brewfile"
+	
+	if ! git -C "$DOTFILES_DIR" diff --quiet resources/Brewfile 2>/dev/null; then
+		echo
+		echo -e "\033[1;33mBrewfile updated.\033[0m Review with: \033[36mcd $DOTFILES_DIR && git diff\033[0m"
+	fi
 }
 
 # Apply dotfiles from repo to ~
