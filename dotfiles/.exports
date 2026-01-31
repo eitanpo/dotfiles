@@ -41,6 +41,9 @@ export STARSHIP_CONFIG=~/.starship
 export DOTNET_CLI_TELEMETRY_OPTOUT=1
 export DOTNET_ROOT="/opt/homebrew/opt/dotnet/libexec"
 
+# eza theme config directory
+export EZA_CONFIG_DIR="$HOME/.config/eza"
+
 # podman
 if [ -f "$HOME/Projects/podman/.vagrant/machines/default/virtualbox/private_key" ]; then
     export CONTAINER_SSHKEY="$HOME/Projects/podman/.vagrant/machines/default/virtualbox/private_key"
